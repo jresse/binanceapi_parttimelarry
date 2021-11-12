@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title> CoinView </title>
+        <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    </head>
+    <body>
+    <h1> {{ title }} </h1>
+    <div id="charts"></div>
+    <div id="trades"></div>
+    <div id="my_balances">
+        <h2>Balances</h2>
+        <table>
+            {% for balance in my_balances %}
+                {% if balance['free']|float > 0.00000000 %}
+                    <tr>
+                        <td>
+                            {{ balance['asset'] }} 
+                        </td>
+                        <td>
+                            {{ balance['free'] }}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+    <script>
+        // var coinSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");
+        // console.log(coinSocket);
+
+        // var tradeDiv = document.getElementById("trades")
+        // coinSocket.onmessage = function (event) {
+        //   console.log(event.data);
+        //   var messageObj = JSON.parse(event.data)
+        //   tradeDiv.append(messageObj.p)
+        // }
+    </script>
+    <script src='{{ url_for('static', filename='charts.js') }} ' > </script>
+    <h3>Settings</h3>
+    <div id="settings">
+        <input type="checkbox" /> RSI 
+        <input type="text" id="rsi_length" name="rsi_length" placeholder="14" />
+        Overbought
+        <input type="text" id="rsi_overbought" name="rsi_overbought" placeholder="70" />
+        Oversold
+        <input type="text" id="rsi_oversold" name="rsi_oversold" placeholder="30" />
+
+    </div>
+
+    </body>
+</html>

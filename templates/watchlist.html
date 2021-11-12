@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>
+            Watchlist
+        </title>
+    </head>
+    <body>
+        <h1>List</h1>
+        <!-- {{list}} -->
+        <table>
+        {% for item in list %}
+            <tr>
+                <td>{{ item['symbol'] }}</td>
+                <td>{{ item['price'] }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>>
