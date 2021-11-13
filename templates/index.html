@@ -5,7 +5,9 @@
     </head>
     <body>
     <h1> {{ title }} </h1>
-    <div id="charts"></div>
+    <div id="charts">
+        <script src='{{ url_for('static', filename='charts.js') }} ' > </script>
+    </div>
     <div id="trades"></div>
     
     <div id="order" style="border: solid gray 1px; padding: 20px; width: 600px; margin-top: 20px;"">
@@ -63,7 +65,6 @@
         //   tradeDiv.append(messageObj.p)
         // }
     </script>
-    <script src='{{ url_for('static', filename='charts.js') }} ' > </script>
 
 
 
